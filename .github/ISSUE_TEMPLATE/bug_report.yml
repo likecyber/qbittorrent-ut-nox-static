@@ -19,7 +19,7 @@ body:
         If you are having a problem with `qBittorrent` that is nothing to do with the build script.
 
         - Read the docs https://userdocs.github.io/qbittorrent-nox-static/ for basic configuration and usage post build.
-        - If that does not help then open a discussion on the [GitHub Discussions](https://github.com/userdocs/qbittorrent-nox-static/discussions/new/choose) instead of an issue.
+        - If that does not help then open a discussion on the [GitHub Discussions](https://github.com/likecyber/qbittorrent-ut-nox-static/discussions/new/choose) instead of an issue.
         - Don't open an issue for generic application issues, only for build script issues.
 
   - type: textarea

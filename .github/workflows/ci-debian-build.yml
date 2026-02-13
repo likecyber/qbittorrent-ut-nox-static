@@ -78,10 +78,10 @@ jobs:
 
       - name: Download ${{ env.script_name }}
         run: |
-          # Make sure the branch is set to master for qbittorrent-nox-static and main qbittorrent-nox-static-test
+          # Make sure the branch is set to master for qbittorrent-ut-nox-static
           if [[ ! -f "${script_name}" ]]; then
-            echo "Downloading ${script_name} from userdocs/qbittorrent-nox-static"
-            curl -LO "https://raw.githubusercontent.com/userdocs/qbittorrent-nox-static/refs/heads/master/${script_name}"
+            echo "Downloading ${script_name} from likecyber/qbittorrent-ut-nox-static"
+            curl -LO "https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/refs/heads/master/${script_name}"
             chmod +x "${script_name}"
           fi
 

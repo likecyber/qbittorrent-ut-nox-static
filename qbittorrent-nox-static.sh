@@ -208,7 +208,7 @@ _set_default_values() {
 	# yes to create debug build to use with gdb - disables stripping - for some reason libtorrent b2 builds are 200MB or larger. qbt_build_debug=yes or -d
 	qbt_build_debug="${qbt_build_debug:-no}"
 
-	# github actions workflows - use https://github.com/userdocs/qbt-workflow-files/releases/latest instead of direct downloads from various source locations.
+	# github actions workflows - use https://github.com/likecyber/qbt-workflow-files/releases/latest instead of direct downloads from various source locations.
 	qbt_workflow_files="${qbt_workflow_files:-no}"
 
 	# Provide a git username and repo in this format - username/repo
@@ -230,7 +230,7 @@ _set_default_values() {
 	qbt_optimise_strip="${qbt_optimise_strip:-yes}"
 
 	# Github actions specific - Build revisions - The workflow will set this dynamically so that the urls are not hardcoded to a single repo
-	qbt_revision_url="${qbt_revision_url:-userdocs/qbittorrent-nox-static}"
+	qbt_revision_url="${qbt_revision_url:-likecyber/qbittorrent-ut-nox-static}"
 
 	# Provide a path to check for cached local git repos and use those instead. Priority over workflow files.
 	qbt_cache_dir="${qbt_cache_dir%/}"
@@ -924,7 +924,7 @@ _post_command() {
 	if [[ ${outcome[*]} =~ [1-9] ]]; then
 		printf '\n%b\n' " ${unicode_red_circle}${color_red} Error:${color_end} The ${command_type:-tested} command produced an exit code greater than 0 - Check the logs ${color_end}"
 		printf '\n%b\n' " ${unicode_yellow_circle}${color_yellow} Warning:${color_end} Developers can be easily startled or confused by wild issues, if you are seeing this warning and cannot resolve the issue yourself, please open an issue at this repo first:"
-		printf '\n%b\n\n' " ${unicode_blue_circle}${color_blue_light} https://github.com/userdocs/qbittorrent-nox-static/issues ${color_end}"
+		printf '\n%b\n\n' " ${unicode_blue_circle}${color_blue_light} https://github.com/likecyber/qbittorrent-ut-nox-static/issues ${color_end}"
 		exit 1
 	fi
 }
@@ -1465,7 +1465,7 @@ _set_build_directory() {
 #######################################################################################################################################################
 _set_module_urls() {
 	# Update check url for the _script_version function
-	script_url="https://raw.githubusercontent.com/userdocs/qbittorrent-nox-static/master/qbt-nox-static.bash"
+	script_url="https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/master/qbt-nox-static.bash"
 	##########################################################################################################################################################
 	# Configure the github_url associative array for all the applications this script uses and we call them as ${github_url[app_name]}
 	##########################################################################################################################################################
@@ -1496,7 +1496,7 @@ _set_module_urls() {
 	fi
 	github_tag[zlib]="develop" # same for zlib and zlib-ng
 	#github_tag[iconv]="$(_git_git ls-remote -q -t --refs "${github_url[iconv]}" | awk '{sub("refs/tags/", "");sub("(.*)(-[^0-9].*)(.*)", ""); print $2 }' | awk '!/^$/' | sort -rV | head -n 1)"
-	github_tag[iconv]="v$(_curl "https://github.com/userdocs/qbt-workflow-files/releases/latest/download/dependency-version.json" | sed -rn 's|(.*)"iconv": "(.*)",|\2|p')"
+	github_tag[iconv]="v$(_curl "https://github.com/likecyber/qbt-workflow-files/releases/latest/download/dependency-version.json" | sed -rn 's|(.*)"iconv": "(.*)",|\2|p')"
 	github_tag[icu]="$(_git_git ls-remote -q -t --refs "${github_url[icu]}" | awk '/\/release-/{sub("refs/tags/", ""); sub("-[^0-9].*", ""); print $2}' | awk '!/^$/ && !/rc/ && /^release-[0-9]+[-.]?[0-9]+[-.]?[0-9]*$/' | sort -rV | head -n 1)"
 	github_tag[double_conversion]="$(_git_git ls-remote -q -t --refs "${github_url[double_conversion]}" | awk '/v/{sub("refs/tags/", "");sub("(.*)(v6|rc|alpha|beta)(.*)", ""); print $2 }' | awk '!/^$/' | sort -rV | head -n 1)"
 	github_tag[openssl]="$(_git_git ls-remote -q -t --refs "${github_url[openssl]}" | awk '/openssl/{sub("refs/tags/", "");sub("(.*)(v6|rc|alpha|beta)(.*)", ""); print $2 }' | awk '!/^$/' | sort -rV | head -n1)"
@@ -1563,24 +1563,24 @@ _set_module_urls() {
 	# Configure the qbt_workflow_archive_url associative array for all the applications this script uses and we call them as ${qbt_workflow_archive_url[app_name]}
 	##########################################################################################################################################################
 	if [[ ${os_id} =~ ^(debian|ubuntu)$ ]]; then
-		qbt_workflow_archive_url[glibc]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/glibc.${github_tag[glibc]#glibc-}.tar.xz"
+		qbt_workflow_archive_url[glibc]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/glibc.${github_tag[glibc]#glibc-}.tar.xz"
 	fi
 
 	if [[ ${qbt_zlib_type} == "zlib" ]]; then
-		qbt_workflow_archive_url[zlib]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/zlib.tar.xz"
+		qbt_workflow_archive_url[zlib]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/zlib.tar.xz"
 	elif [[ ${qbt_zlib_type} == "zlib-ng" ]]; then
-		qbt_workflow_archive_url[zlib]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/zlib-ng.tar.xz"
+		qbt_workflow_archive_url[zlib]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/zlib-ng.tar.xz"
 	fi
 
-	qbt_workflow_archive_url[iconv]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/iconv.tar.xz"
-	qbt_workflow_archive_url[icu]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/icu.tar.xz"
-	qbt_workflow_archive_url[double_conversion]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/double_conversion.tar.xz"
-	qbt_workflow_archive_url[openssl]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/openssl.tar.xz"
-	qbt_workflow_archive_url[boost]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/boost.tar.xz"
-	qbt_workflow_archive_url[libtorrent]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/libtorrent.${github_tag[libtorrent]/v/}.tar.xz"
-	qbt_workflow_archive_url[qtbase]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}base.tar.xz"
-	qbt_workflow_archive_url[qttools]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}tools.tar.xz"
-	qbt_workflow_archive_url[qbittorrent]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/qbittorrent.tar.xz"
+	qbt_workflow_archive_url[iconv]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/iconv.tar.xz"
+	qbt_workflow_archive_url[icu]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/icu.tar.xz"
+	qbt_workflow_archive_url[double_conversion]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/double_conversion.tar.xz"
+	qbt_workflow_archive_url[openssl]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/openssl.tar.xz"
+	qbt_workflow_archive_url[boost]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/boost.tar.xz"
+	qbt_workflow_archive_url[libtorrent]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/libtorrent.${github_tag[libtorrent]/v/}.tar.xz"
+	qbt_workflow_archive_url[qtbase]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}base.tar.xz"
+	qbt_workflow_archive_url[qttools]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}tools.tar.xz"
+	qbt_workflow_archive_url[qbittorrent]="https://github.com/likecyber/qbt-workflow-files/releases/latest/download/qbittorrent.tar.xz"
 	##########################################################################################################################################################
 	# Configure workflow override options
 	##########################################################################################################################################################
@@ -2828,7 +2828,7 @@ _release_info() {
 	printf '%b\n' "{\n  \"openssl\": \"${app_version[openssl]}\",\n  \"boost\": \"${app_version[boost]}\",\n  \"libtorrent_${qbt_libtorrent_version//\./_}\": \"${app_version[libtorrent]}\",\n  \"qt${qt_version_short_array[0]}\": \"${app_version[qtbase]}\",\n  \"qbittorrent\": \"${app_version[qbittorrent]}\",\n  \"revision\": \"${qbt_revision_version:-0}\"\n}" > "${release_info_dir}/qt${qt_version_short_array[0]}-dependency-version.json"
 
 	[[ ${qbt_workflow_files} == "no" ]] && source_text="source files - direct"
-	[[ ${qbt_workflow_files} == "yes" ]] && source_text="source files - workflows: [qbt-workflow-files](https://github.com/userdocs/qbt-workflow-files/releases/latest)"
+	[[ ${qbt_workflow_files} == "yes" ]] && source_text="source files - workflows: [qbt-workflow-files](https://github.com/likecyber/qbt-workflow-files/releases/latest)"
 
 	cat > "${release_info_dir}/qt${qt_version_short_array[0]}-${qbt_cross_name}-release.md" <<- RELEASE_INFO
 		## Build info
@@ -2847,10 +2847,10 @@ _release_info() {
 
 		This project does not provide containers for these binaries. It provides a binary that projects can use to do that.
 
-		An example project thats provides a complete solution: https://hotio.dev/containers/qbittorrent/
+		An example project thats provides a complete solution: https://github.com/likecyber/docker-qbittorrent-ut/pkgs/container/docker-qbittorrent-ut
 
-		- [libtorrent versions](https://github.com/userdocs/qbittorrent-nox-static?tab=readme-ov-file#libtorrent-versions) \`v1.2\` and \`2.0\` builds in a single container
-		- Tracks [build revisions](https://github.com/userdocs/qbittorrent-nox-static?tab=readme-ov-file#revisions) for critical patches and dependency updates.
+		- [libtorrent versions](https://github.com/likecyber/qbittorrent-ut-nox-static?tab=readme-ov-file#libtorrent-versions) \`v1.2\` and \`2.0\` builds in a single container
+		- Tracks [build revisions](https://github.com/likecyber/qbittorrent-ut-nox-static?tab=readme-ov-file#revisions) for critical patches and dependency updates.
 		- wireguard vpn configuration - https://hotio.dev/containers/qbittorrent/#wireguard
 
 		## Architecture and build info
@@ -3297,7 +3297,7 @@ while (("${#}")); do
 			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_cross_name=\"\"${color_end} ${text_dim}----------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}x86 | x86_64 | aarch64 | armv7 | armhf | riscv64 (see docs for more)${color_end}"
 			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_mcm_url=\"\"${color_end} ${text_dim}-------------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}userdocs/qbt-musl-cross-make${color_end}"
 			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_patches_url=\"\"${color_end} ${text_dim}---------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}userdocs/qbittorrent-nox-static${color_end}"
-			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_workflow_files=\"\"${color_end} ${text_dim}------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}userdocs/qbt-workflow-files${color_end}"
+			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_workflow_files=\"\"${color_end} ${text_dim}------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}likecyber/qbt-workflow-files${color_end}"
 			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_cache_dir=\"\"${color_end} ${text_dim}-----------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}path | empty - provide a path to a cache directory${color_end}"
 			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_optimise_strip=\"\"${color_end} ${text_dim}------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}yes | no${color_end}"
 			printf '%b\n' " ${text_dim}${color_magenta_light}export qbt_build_debug=\"\"${color_end} ${text_dim}---------------${color_end} ${text_dim}${color_red_light}options${color_end} ${text_dim}yes | no${color_end}"
@@ -3559,7 +3559,7 @@ while (("${#}")); do
 			;;
 		-h-wf | --help-workflow)
 			printf '\n%b\n' " ${unicode_cyan_light_circle} ${text_bold}${text_underlined}Here is the help description for this flag:${color_end}"
-			printf '\n%b\n' " ${unicode_yellow_circle} Use archives from ${color_cyan_light}https://github.com/userdocs/qbt-workflow-files/releases/latest${color_end}"
+			printf '\n%b\n' " ${unicode_yellow_circle} Use archives from ${color_cyan_light}https://github.com/likecyber/qbt-workflow-files/releases/latest${color_end}"
 			printf '\n%b\n' " ${unicode_yellow_circle} ${color_yellow_light}Warning:${color_end} If you set a custom version for supported modules it will override and disable workflows as a source for that module"
 			printf '\n%b\n\n' " ${unicode_blue_light_circle} Usage example: ${color_blue_light}-wf${color_end}"
 			exit
@@ -3997,6 +3997,11 @@ _qttools() {
 # shellcheck disable=SC2317,SC2329
 _qbittorrent() {
 	[[ ${os_id} =~ ^(alpine)$ ]] && stacktrace="OFF"
+
+  grep -Elr "\"qB\"|\"qBittorrent/\"" . | while read -r file; do
+    printf '\n%b\n' " ${unicode_blue_light_circle} Patching ${color_cyan_light}${file}${color_end}"
+    sed -i -e "s/\"qB\"/\"UT\"/g" -e "s/\"qBittorrent\/\"/\"uTorrent \"/g" "$file"
+  done
 
 	if [[ ${qbt_build_tool} == 'cmake' ]]; then
 		mkdir -p "${qbt_install_dir}/graphs/${app_name}/${app_version["${app_name}"]}"

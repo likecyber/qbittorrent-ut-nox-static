@@ -2,8 +2,8 @@
 
 Find bug?
 
-[Open issue](https://github.com/userdocs/qbittorrent-nox-static/issues/new/choose)
+[Open issue](https://github.com/likecyber/qbittorrent-ut-nox-static/issues/new/choose)
 
 Got question?
 
-[Start discussion](https://github.com/userdocs/qbittorrent-nox-static/discussions/new/choose)
+[Start discussion](https://github.com/likecyber/qbittorrent-ut-nox-static/discussions/new/choose)

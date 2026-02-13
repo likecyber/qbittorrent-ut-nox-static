@@ -197,7 +197,7 @@ check_gh_cli() {
 create_download_url() {
 	local arch="$1"
 	local release_tag="$2"
-	printf '%s' "https://github.com/userdocs/qbittorrent-nox-static/releases/download/${release_tag}/${arch}-qbittorrent-nox"
+	printf '%s' "https://github.com/likecyber/qbittorrent-ut-nox-static/releases/download/${release_tag}/${arch}-qbittorrent-nox"
 }
 
 # Create SHA256 checksum of downloaded file
@@ -225,7 +225,7 @@ verify_binary_integrity() {
 	local install_path="$1"
 	local release_tag="$2"
 	local arch="$3"
-	local repo="userdocs/qbittorrent-nox-static"
+	local repo="likecyber/qbittorrent-ut-nox-static"
 
 	# Calculate local file SHA256
 	local local_sha
@@ -333,7 +333,7 @@ verify_binary_integrity() {
 }
 # Get release tag from API
 get_release_tag() {
-	local api="https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/dependency-version.json"
+	local api="https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/dependency-version.json"
 	local ver="${LIBTORRENT_VERSION:-v2}"
 	local tool
 	tool=$(check_download_tools)

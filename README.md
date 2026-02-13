@@ -1,16 +1,18 @@
-# qBittorrent-nox Static Builds
+# qBittorrent-ut-nox Static Builds
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9817ad80d35c480aa9842b53001d55b0)](https://app.codacy.com/gh/userdocs/qbittorrent-nox-static?utm_source=github.com&utm_medium=referral&utm_content=userdocs/qbittorrent-nox-static&utm_campaign=Badge_Grade)
-[![CodeFactor](https://www.codefactor.io/repository/github/userdocs/qbittorrent-nox-static/badge)](https://www.codefactor.io/repository/github/userdocs/qbittorrent-nox-static)
-[![CI](https://github.com/userdocs/qbittorrent-nox-static/actions/workflows/ci-main-reusable-caller.yml/badge.svg)](https://github.com/userdocs/qbittorrent-nox-static/actions/workflows/ci-main-reusable-caller.yml)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9817ad80d35c480aa9842b53001d55b0)](https://app.codacy.com/gh/likecyber/qbittorrent-ut-nox-static?utm_source=github.com&utm_medium=referral&utm_content=likecyber/qbittorrent-ut-nox-static&utm_campaign=Badge_Grade)
+[![CodeFactor](https://www.codefactor.io/repository/github/likecyber/qbittorrent-ut-nox-static/badge)](https://www.codefactor.io/repository/github/likecyber/qbittorrent-ut-nox-static)
+[![CI](https://github.com/likecyber/qbittorrent-ut-nox-static/actions/workflows/ci-main-reusable-caller.yml/badge.svg)](https://github.com/likecyber/qbittorrent-ut-nox-static/actions/workflows/ci-main-reusable-caller.yml)
 
-Cross-platform static builds of qBittorrent-nox with the latest dependencies
+Cross-platform static builds of qBittorrent-ut-nox with the latest dependencies
 
-[📦 Latest Release](https://github.com/userdocs/qbittorrent-nox-static/releases/latest) • [📖 Documentation](https://userdocs.github.io/qbittorrent-nox-static/introduction/) • [🏷️ All Releases](https://github.com/userdocs/qbittorrent-nox-static/tags)
+qBittorrent-ut-nox is a modified version of qBittorrent-nox that changes the signature of the client for my own personal use.
+
+[📦 Latest Release](https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest) • [📖 Documentation](https://userdocs.github.io/qbittorrent-nox-static/introduction/) • [🏷️ All Releases](https://github.com/likecyber/qbittorrent-ut-nox-static/tags)
 
 > [!TIP]
 >
-> Docker: Use https://hotio.dev/containers/qbittorrent
+> Docker: Use https://github.com/likecyber/docker-qbittorrent-ut/pkgs/container/docker-qbittorrent-ut
 >
 > Libtorrent `v1.2` and `v2` static builds combined into a single docker image with vpn support.
 
@@ -25,25 +27,25 @@ Cross-platform static builds of qBittorrent-nox with the latest dependencies
 Latest release using libtorrent `v2`
 
 ```bash
-bash <(curl -sL usrdx.github.io/s/qi.bash)
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash)
 ```
 
 Latest release using libtorrent `v1.2`
 
 ```bash
-bash <(curl -sL usrdx.github.io/s/qi.bash) -lt v1
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash) -lt v1
 ```
 
 Using Libtorrent v1.2 and forcing the armv7 binary
 
 ```bash
-bash <(curl -sL usrdx.github.io/s/qi.bash) -lt v1 -fa armv7
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash) -lt v1 -fa armv7
 ```
 
 Show the help section
 
 ```bash
-bash <(curl -sL usrdx.github.io/s/qi.bash) -h
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash) -h
 ```
 
 You can now run it using this command:
@@ -101,7 +103,7 @@ Choose the command that matches your system architecture:
 
 ```bash
 mkdir -p ~/bin && source ~/.profile
-wget -qO ~/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/x86-qbittorrent-nox
+wget -qO ~/bin/qbittorrent-nox https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/x86-qbittorrent-nox
 chmod 700 ~/bin/qbittorrent-nox
 ```
 
@@ -109,7 +111,7 @@ chmod 700 ~/bin/qbittorrent-nox
 
 ```bash
 mkdir -p ~/bin && source ~/.profile
-wget -qO ~/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/x86_64-qbittorrent-nox
+wget -qO ~/bin/qbittorrent-nox https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/x86_64-qbittorrent-nox
 chmod 700 ~/bin/qbittorrent-nox
 ```
 
@@ -117,7 +119,7 @@ chmod 700 ~/bin/qbittorrent-nox
 
 ```bash
 mkdir -p ~/bin && source ~/.profile
-wget -qO ~/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/armhf-qbittorrent-nox
+wget -qO ~/bin/qbittorrent-nox https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/armhf-qbittorrent-nox
 chmod 700 ~/bin/qbittorrent-nox
 ```
 
@@ -125,7 +127,7 @@ chmod 700 ~/bin/qbittorrent-nox
 
 ```bash
 mkdir -p ~/bin && source ~/.profile
-wget -qO ~/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/armv7-qbittorrent-nox
+wget -qO ~/bin/qbittorrent-nox https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/armv7-qbittorrent-nox
 chmod 700 ~/bin/qbittorrent-nox
 ```
 
@@ -133,7 +135,7 @@ chmod 700 ~/bin/qbittorrent-nox
 
 ```bash
 mkdir -p ~/bin && source ~/.profile
-wget -qO ~/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/aarch64-qbittorrent-nox
+wget -qO ~/bin/qbittorrent-nox https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/aarch64-qbittorrent-nox
 chmod 700 ~/bin/qbittorrent-nox
 ```
 
@@ -148,7 +150,7 @@ This project automatically builds and releases binaries for both Libtorrent vers
 - **Libtorrent v2.0**: Latest features and improvements
 
 > [!TIP]
-> You can view all current releases and pre-releases at <https://github.com/userdocs/qbittorrent-nox-static/tags>
+> You can view all current releases and pre-releases at <https://github.com/likecyber/qbittorrent-ut-nox-static/tags>
 
 ## 🎯 Version Management
 
@@ -159,13 +161,13 @@ Since this project builds both v1.2 and v2.0 simultaneously, you can target spec
 #### Libtorrent v1.2 Release Info
 
 ```bash
-jq -r '. | "release-\(.qbittorrent)_v\(.libtorrent_1_2)"' < <(curl -sL https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/dependency-version.json)
+jq -r '. | "release-\(.qbittorrent)_v\(.libtorrent_1_2)"' < <(curl -sL https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/dependency-version.json)
 ```
 
 #### Libtorrent v2.0 Release Info
 
 ```bash
-jq -r '. | "release-\(.qbittorrent)_v\(.libtorrent_2_0)"' < <(curl -sL https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/dependency-version.json)
+jq -r '. | "release-\(.qbittorrent)_v\(.libtorrent_2_0)"' < <(curl -sL https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/dependency-version.json)
 ```
 
 ### Build Revisions
@@ -188,7 +190,7 @@ The build system tracks 5 main dependencies that trigger automatic rebuilds:
 #### Check Latest Revision
 
 ```bash
-jq -r '.revision' < <(curl -sL "https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/dependency-version.json")
+jq -r '.revision' < <(curl -sL "https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/dependency-version.json")
 ```
 
 #### Track Specific Version Revisions
@@ -198,13 +200,13 @@ For independent tracking of v1.2 and v2.0 revisions:
 1. **Get the release tag:**
 
    ```bash
-   release="$(jq -r '. | "release-\(.qbittorrent)_v\(.libtorrent_1_2)"' < <(curl -sL https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/dependency-version.json))"
+   release="$(jq -r '. | "release-\(.qbittorrent)_v\(.libtorrent_1_2)"' < <(curl -sL https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/dependency-version.json))"
    ```
 
 2. **Get the revision for that release:**
 
    ```bash
-   jq -r '.revision' < <(curl -sL "https://github.com/userdocs/qbittorrent-nox-static/releases/download/${release}/dependency-version.json")
+   jq -r '.revision' < <(curl -sL "https://github.com/likecyber/qbittorrent-ut-nox-static/releases/download/${release}/dependency-version.json")
    ```
 
 ## 📊 Dependency Tracking
@@ -214,7 +216,7 @@ Each release includes a `dependency-version.json` file that provides version inf
 ### Download Dependency Information
 
 ```bash
-curl -sL https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/dependency-version.json
+curl -sL https://github.com/likecyber/qbittorrent-ut-nox-static/releases/latest/download/dependency-version.json
 ```
 
 ### Example Output
@@ -244,7 +246,7 @@ Binaries built from `release-5.0.0_v2.0.10` and `release-5.0.0_v1.2.19` revision
 You can verify the integrity and provenance of downloaded binaries using GitHub CLI:
 
 ```bash
-gh attestation verify x86_64-qbittorrent-nox -o userdocs
+gh attestation verify x86_64-qbittorrent-nox -o likecyber
 ```
 
 ### Example Verification Output
@@ -256,7 +258,7 @@ Loaded 1 attestation from GitHub API
 
 sha256:a656ff57b03ee6218205d858679ea189246caaecbbcc38d4d2b57eb81d8e59bb was attested by:
 REPO                             PREDICATE_TYPE                  WORKFLOW
-userdocs/qbittorrent-nox-static  https://slsa.dev/provenance/v1  .github/workflows/matrix_multi_build_and_release_qbt_workflow_files.yml@refs/heads/master
+likecyber/qbittorrent-ut-nox-static  https://slsa.dev/provenance/v1  .github/workflows/matrix_multi_build_and_release_qbt_workflow_files.yml@refs/heads/master
 ```
 
 For more information, visit the [GitHub CLI attestation documentation](https://cli.github.com/manual/gh_attestation_verify).
@@ -266,7 +268,7 @@ For more information, visit the [GitHub CLI attestation documentation](https://c
 This build script depends on several related repositories:
 
 - [qbt-musl-cross-make](https://github.com/userdocs/qbt-musl-cross-make) - Cross-compilation toolchain
-- [qbt-workflow-files](https://github.com/userdocs/qbt-workflow-files) - CI/CD workflow templates
+- [qbt-workflow-files](https://github.com/likecyber/qbt-workflow-files) - CI/CD workflow templates
 - [qbt-host-deps](https://github.com/userdocs/qbt-host-deps) - Host dependency management
 
 ## 💻 WSL2 Support
