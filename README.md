@@ -27,25 +27,25 @@ qBittorrent-ut-nox is a modified version of qBittorrent-nox that changes the sig
 Latest release using libtorrent `v2`
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash)
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/master/qi.bash)
 ```
 
 Latest release using libtorrent `v1.2`
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash) -lt v1
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/master/qi.bash) -lt v1
 ```
 
 Using Libtorrent v1.2 and forcing the armv7 binary
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash) -lt v1 -fa armv7
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/master/qi.bash) -lt v1 -fa armv7
 ```
 
 Show the help section
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/main/qi.bash) -h
+bash <(curl -sL https://raw.githubusercontent.com/likecyber/qbittorrent-ut-nox-static/master/qi.bash) -h
 ```
 
 You can now run it using this command:
